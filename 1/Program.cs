@@ -6,13 +6,13 @@ using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Настройка Serilog
+
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
-builder.Host.UseSerilog(); // Используем Serilog вместо стандартного логгера
+builder.Host.UseSerilog(); 
 
 builder.Services.AddControllers();
 
